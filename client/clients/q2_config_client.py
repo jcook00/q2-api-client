@@ -1,8 +1,8 @@
 from client.endpoints.q2_config import Q2ConfigEndpoint
-from client.services.q2_service import Q2Service
+from client.services.q2_service import Q2Client
 
 
-class Q2ConfigService(Q2Service):
+class Q2ConfigService(Q2Client):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

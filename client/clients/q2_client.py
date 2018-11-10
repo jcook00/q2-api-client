@@ -1,9 +1,9 @@
 from client.endpoints.mobile_ws import LoginEndpoint
-from client.services.base_service import Service
+from client.services.base_client import Client
 from client.utils.url import URL
 
 
-class Q2Service(Service):
+class Q2Client(Client):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

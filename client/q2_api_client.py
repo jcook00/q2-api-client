@@ -2,7 +2,7 @@ from client.services.file_map_service import FileMapService
 from client.services.q2_config_service import Q2ConfigService
 
 
-class Q2Client(object):
+class Q2APIClient(object):
 
     def __init__(self, **kwargs):
         self.q2_config = Q2ConfigService(**kwargs)

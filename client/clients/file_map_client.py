@@ -1,8 +1,8 @@
 from client.endpoints.file_map import FileMapEndpoint
-from client.services.q2_service import Q2Service
+from client.services.q2_service import Q2Client
 
 
-class FileMapService(Q2Service):
+class FileMapService(Q2Client):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

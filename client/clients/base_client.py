@@ -5,7 +5,7 @@ from copy import deepcopy
 import requests
 
 
-class Service(metaclass=ABCMeta):
+class Client(metaclass=ABCMeta):
 
     def __init__(self, **kwargs):
         self.host = kwargs.get('host')
