@@ -10,7 +10,7 @@ class CSREndpoint(Enum):
     PROPERTIES = "/central/csr/properties"
 
 
-class GamEndpoint(Enum):
+class GAMEndpoint(Enum):
 
     RIGHTS = "/central/gam/rights"
     TEAM = "/central/gam/team"

@@ -3,7 +3,7 @@ from urllib import parse
 from urllib.parse import urlencode, urlunparse
 
 
-class URL(object):
+class URL:
 
     BASE_PATH = "/"
 
