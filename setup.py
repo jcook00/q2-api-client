@@ -16,7 +16,7 @@ setup(
     long_description=readme,
     author='Christopher Aranda',
     author_email='christopher.aranda@q2ebanking.com',
-    url='',
+    url='https://bitbucket.q2dc.local/projects/IMPS/repos/q2-api-client/browse',
     license=license,
     packages=find_packages(exclude=('tests', 'docs'))
 )
