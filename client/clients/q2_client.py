@@ -7,12 +7,12 @@ class Q2Client(RestClient):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self._connect_timeout = kwargs.get('connect_timeout', 60)
+        self._read_timeout = kwargs.get('read_timeout', 120)
         self._scheme = kwargs.get('scheme', "https")
         self._base_path = kwargs.get('base_path')
         self._headers['Accept'] = "application/json"
         self._headers['q2token'] = kwargs.get('q2token') if kwargs.get('q2token') is not None else self._get_q2token()
-        self._connect_timeout = kwargs.get('connect_timeout', 60)
-        self._read_timeout = kwargs.get('read_timeout', 120)
 
     def _get_q2token(self):
         credentials = {'userId': self._username, 'password': self._password}
