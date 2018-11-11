@@ -8,7 +8,6 @@ class URL:
     BASE_PATH = "/"
 
     def __init__(self, **components):
-        super().__init__()
         self.scheme = components.get('scheme')
         self.host = components.get('host')
         self.port = components.get('port')
