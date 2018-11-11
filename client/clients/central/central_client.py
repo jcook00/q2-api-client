@@ -7,7 +7,7 @@ class CentralClient:
 
     def __init__(self, **kwargs):
         self._csr = CSRClient(**kwargs)
-        kwargs['q2token'] = self._csr.headers.get('q2token')
+        kwargs['q2token'] = self._csr.get_header('q2token')
         self._gam = GAMClient(**kwargs)
         self._lookup = LookupClient(**kwargs)
 

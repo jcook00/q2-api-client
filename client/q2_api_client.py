@@ -8,7 +8,7 @@ class Q2APIClient:
 
     def __init__(self, **kwargs):
         self._q2_config = Q2ConfigClient(**kwargs)
-        kwargs['q2token'] = self._q2_config.headers.get('q2token')
+        kwargs['q2token'] = self._q2_config.get_header('q2token')
         self._central = CentralClient(**kwargs)
         self._file_map = FileMapClient(**kwargs)
         self._hq = HQClient(**kwargs)

@@ -16,56 +16,25 @@ class RestClient(metaclass=ABCMeta):
         self._headers = kwargs.get('headers', dict())
         self._query_parameters = kwargs.get('query_parameters', defaultdict(set))
         self._fragment = kwargs.get('fragment')
-        self._connect_timeout = kwargs.get('connect_timeout', 60)
-        self._read_timeout = kwargs.get('read_timeout', 120)
+        self._connect_timeout = kwargs.get('connect_timeout')
+        self._read_timeout = kwargs.get('read_timeout')
 
-    @property
-    def scheme(self):
-        return self._scheme
+    def get_header(self, header):
+        return self._headers.get(header)
 
-    @property
-    def host(self):
-        return self._host
+    def put_header(self, header, value):
+        self._headers[header] = value
 
-    @property
-    def port(self):
-        return self._port
-
-    @property
-    def username(self):
-        return self._username
-
-    @property
-    def password(self):
-        return self._password
-
-    @property
-    def headers(self):
-        return self._headers
-
-    def copy_headers(self):
+    def _copy_headers(self):
         return deepcopy(self._headers)
 
-    @property
-    def query_parameters(self):
-        return self._query_parameters
+    def add_query_parameter(self, parameter, value):
+        self._query_parameters[parameter].add(value)
 
-    def copy_query_parameters(self):
+    def _copy_query_parameters(self):
         return deepcopy(self._query_parameters)
 
-    @property
-    def fragment(self):
-        return self._fragment
-
-    @property
-    def connect_timeout(self):
-        return self._connect_timeout
-
-    @property
-    def read_timeout(self):
-        return self._read_timeout
-
-    def get(self, url, **components):
+    def _get(self, url, **components):
         response = requests.get(
             url=url,
             params=components.get('query_parameters', self._query_parameters),
@@ -74,7 +43,7 @@ class RestClient(metaclass=ABCMeta):
         )
         return response
 
-    def put(self, url, **components):
+    def _put(self, url, **components):
         response = requests.put(
             url=url,
             params=components.get('query_parameters', self._query_parameters),
@@ -85,7 +54,7 @@ class RestClient(metaclass=ABCMeta):
         )
         return response
 
-    def post(self, url, **components):
+    def _post(self, url, **components):
         response = requests.post(
             url=url,
             params=components.get('query_parameters', self._query_parameters),
@@ -96,7 +65,7 @@ class RestClient(metaclass=ABCMeta):
         )
         return response
 
-    def patch(self, url, **components):
+    def _patch(self, url, **components):
         response = requests.patch(
             url=url,
             params=components.get('query_parameters', self._query_parameters),
@@ -107,13 +76,11 @@ class RestClient(metaclass=ABCMeta):
         )
         return response
 
-    def delete(self, url, **components):
+    def _delete(self, url, **components):
         response = requests.delete(
             url=url,
             params=components.get('query_parameters', self._query_parameters),
             headers=components.get('headers', self._headers),
-            data=components.get('data'),
-            json=components.get('json'),
             timeout=(self._connect_timeout, self._read_timeout)
         )
         return response

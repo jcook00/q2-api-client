@@ -8,7 +8,7 @@ class HQClient:
 
     def __init__(self, **kwargs):
         self._back_office = BackOfficeClient(**kwargs)
-        kwargs['q2token'] = self._back_office.headers.get('q2token')
+        kwargs['q2token'] = self._back_office.get_header('q2token')
         self._core = CoreClient(**kwargs)
         self._front_end = FrontEndClient(**kwargs)
         self._token = TokenClient(**kwargs)

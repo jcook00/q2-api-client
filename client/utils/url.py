@@ -8,6 +8,18 @@ class URL:
     BASE_PATH = "/"
 
     def __init__(self, **components):
+        self._scheme = None
+        self._host = None
+        self._port = None
+        self._path = None
+        self._params = None
+        self._query = None
+        self._fragment = None
+        self._username = None
+        self._password = None
+        self._set_url_components(**components)
+
+    def _set_url_components(self, **components):
         self.scheme = components.get('scheme')
         self.host = components.get('host')
         self.port = components.get('port')
@@ -24,8 +36,8 @@ class URL:
 
     @scheme.setter
     def scheme(self, scheme):
-        if scheme not in parse.uses_relative:
-            exception_msg = "scheme must be one of the following: {}".format(parse.uses_relative)
+        if scheme not in parse.uses_netloc:
+            exception_msg = "scheme must be one of the following: {}".format(parse.uses_netloc)
             raise ValueError(exception_msg)
         self._scheme = scheme
 

@@ -6,4 +6,4 @@ class Q2ConfigClient(Q2Client):
 
     def get_q2_config(self):
         endpoint = Q2ConfigEndpoint.Q2_CONFIG.value
-        return self.get(url=self.build_url(endpoint))
+        return self._get(url=self._build_url(endpoint))

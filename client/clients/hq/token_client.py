@@ -6,4 +6,4 @@ class TokenClient(Q2Client):
 
     def get_token_info(self):
         endpoint = TokenEndpoint.TOKEN_INFO.value
-        return self.get(url=self.build_url(endpoint))
+        return self._get(url=self._build_url(endpoint))
