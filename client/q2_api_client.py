@@ -1,6 +1,7 @@
 from client.clients.central.central_client import CentralClient
 from client.clients.file_map.file_map_client import FileMapClient
 from client.clients.hq.hq_client import HQClient
+from client.clients.mobile_ws.mobile_ws_client import MobileWSClient
 from client.clients.q2_config.q2_config_client import Q2ConfigClient
 from client.clients.v2.v2_client import V2Client
 
@@ -14,6 +15,7 @@ class Q2APIClient:
         self._file_map = FileMapClient(**kwargs)
         self._hq = HQClient(**kwargs)
         self._v2 = V2Client(**kwargs)
+        self._mobile_ws = MobileWSClient(**kwargs)
 
     @property
     def q2_config(self):
@@ -34,3 +36,7 @@ class Q2APIClient:
     @property
     def v2(self):
         return self._v2
+
+    @property
+    def mobile_ws(self):
+        return self._mobile_ws
