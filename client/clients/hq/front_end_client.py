@@ -1,5 +1,5 @@
 from client.clients.q2_client import Q2Client
-from client.endpoints.hq import FrontEndEndpoint
+from client.endpoints.hq_endpoints import FrontEndEndpoint
 
 
 class FrontEndClient(Q2Client):

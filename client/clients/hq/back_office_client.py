@@ -1,5 +1,5 @@
 from client.clients.q2_client import Q2Client
-from client.endpoints.hq import BackOfficeEndpoint
+from client.endpoints.hq_endpoints import BackOfficeEndpoint
 
 
 class BackOfficeClient(Q2Client):

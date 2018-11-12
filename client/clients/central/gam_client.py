@@ -1,5 +1,5 @@
 from client.clients.q2_client import Q2Client
-from client.endpoints.central import GAMEndpoint
+from client.endpoints.central_endpoints import GAMEndpoint
 
 
 class GAMClient(Q2Client):
