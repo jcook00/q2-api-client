@@ -16,10 +16,10 @@ class Q2APIClient:
         self._central = CentralClient(**kwargs)
         self._file_map = FileMapClient(**kwargs)
         self._hq = HQClient(**kwargs)
+        self._mobile_ws = MobileWSClient(**kwargs)
         self._refresh_cache = RefreshCacheClient(**kwargs)
         self._sdk = SDKClient(**kwargs)
         self._v2 = V2Client(**kwargs)
-        self._mobile_ws = MobileWSClient(**kwargs)
 
     @property
     def q2_config(self):
@@ -38,6 +38,10 @@ class Q2APIClient:
         return self._hq
 
     @property
+    def mobile_ws(self):
+        return self._mobile_ws
+
+    @property
     def refresh_cache(self):
         return self._refresh_cache
 
@@ -48,7 +52,3 @@ class Q2APIClient:
     @property
     def v2(self):
         return self._v2
-
-    @property
-    def mobile_ws(self):
-        return self._mobile_ws
