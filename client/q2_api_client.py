@@ -3,6 +3,8 @@ from client.clients.file_map.file_map_client import FileMapClient
 from client.clients.hq.hq_client import HQClient
 from client.clients.mobile_ws.mobile_ws_client import MobileWSClient
 from client.clients.q2_config.q2_config_client import Q2ConfigClient
+from client.clients.refresh_cache.refresh_cache_client import RefreshCacheClient
+from client.clients.sdk.sdk_client import SDKClient
 from client.clients.v2.v2_client import V2Client
 
 
@@ -14,6 +16,8 @@ class Q2APIClient:
         self._central = CentralClient(**kwargs)
         self._file_map = FileMapClient(**kwargs)
         self._hq = HQClient(**kwargs)
+        self._refresh_cache = RefreshCacheClient(**kwargs)
+        self._sdk = SDKClient(**kwargs)
         self._v2 = V2Client(**kwargs)
         self._mobile_ws = MobileWSClient(**kwargs)
 
@@ -32,6 +36,14 @@ class Q2APIClient:
     @property
     def hq(self):
         return self._hq
+
+    @property
+    def refresh_cache(self):
+        return self._refresh_cache
+
+    @property
+    def sdk(self):
+        return self._sdk
 
     @property
     def v2(self):
