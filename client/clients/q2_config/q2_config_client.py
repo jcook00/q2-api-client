@@ -1,5 +1,5 @@
 from client.clients.q2_client import Q2Client
-from client.endpoints.q2_config import Q2ConfigEndpoint
+from client.endpoints.q2_config_endpoints import Q2ConfigEndpoint
 
 
 class Q2ConfigClient(Q2Client):

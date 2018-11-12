@@ -1,5 +1,5 @@
 from client.clients.rest_client import RestClient
-from client.endpoints.mobile_ws import LoginEndpoint
+from client.endpoints.mobile_ws_endpoints import LoginEndpoint
 from client.utils.url import URL
 
 

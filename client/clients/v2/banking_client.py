@@ -1,5 +1,5 @@
 from client.clients.q2_client import Q2Client
-from client.endpoints.v2 import BankingEndpoint
+from client.endpoints.v2_endpoints import BankingEndpoint
 
 
 class BankingClient(Q2Client):

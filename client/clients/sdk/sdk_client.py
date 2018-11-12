@@ -1,5 +1,5 @@
 from client.clients.q2_client import Q2Client
-from client.endpoints.sdk import SDKEndpoint
+from client.endpoints.sdk_endpoints import SDKEndpoint
 
 
 class SDKClient(Q2Client):

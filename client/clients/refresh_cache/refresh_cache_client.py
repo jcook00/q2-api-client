@@ -1,5 +1,5 @@
 from client.clients.q2_client import Q2Client
-from client.endpoints.refresh_cache import RefreshCacheEndpoint
+from client.endpoints.refresh_cache_endpoints import RefreshCacheEndpoint
 
 
 class RefreshCacheClient(Q2Client):

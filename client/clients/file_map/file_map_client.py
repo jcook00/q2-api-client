@@ -1,5 +1,5 @@
 from client.clients.q2_client import Q2Client
-from client.endpoints.file_map import FileMapEndpoint
+from client.endpoints.file_map_endpoints import FileMapEndpoint
 
 
 class FileMapClient(Q2Client):
