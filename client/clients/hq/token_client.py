@@ -1,8 +1,8 @@
-from client.clients.q2_client import Q2Client
+from client.clients.base_q2_client import BaseQ2Client
 from client.endpoints.hq_endpoints import TokenEndpoint
 
 
-class TokenClient(Q2Client):
+class TokenClient(BaseQ2Client):
 
     def get_token_info(self):
         endpoint = TokenEndpoint.TOKEN_INFO.value

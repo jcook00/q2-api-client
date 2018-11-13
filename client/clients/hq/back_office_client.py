@@ -1,8 +1,8 @@
-from client.clients.q2_client import Q2Client
+from client.clients.base_q2_client import BaseQ2Client
 from client.endpoints.hq_endpoints import BackOfficeEndpoint
 
 
-class BackOfficeClient(Q2Client):
+class BackOfficeClient(BaseQ2Client):
 
     def get_addresses(self):
         endpoint = BackOfficeEndpoint.ADDRESS.value

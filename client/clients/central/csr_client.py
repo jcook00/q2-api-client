@@ -1,8 +1,8 @@
-from client.clients.q2_client import Q2Client
+from client.clients.base_q2_client import BaseQ2Client
 from client.endpoints.central_endpoints import CSREndpoint
 
 
-class CSRClient(Q2Client):
+class CSRClient(BaseQ2Client):
 
     def get_csr_config(self, name):
         endpoint = CSREndpoint.CONFIG.value.format(name=name)
