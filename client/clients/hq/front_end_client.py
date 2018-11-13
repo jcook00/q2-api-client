@@ -1,8 +1,8 @@
-from client.clients.q2_client import Q2Client
+from client.clients.base_q2_client import BaseQ2Client
 from client.endpoints.hq_endpoints import FrontEndEndpoint
 
 
-class FrontEndClient(Q2Client):
+class FrontEndClient(BaseQ2Client):
 
     def get_dispute_form(self):
         endpoint = FrontEndEndpoint.DISPUTE_FORM.value

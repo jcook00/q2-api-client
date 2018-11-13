@@ -1,8 +1,8 @@
-from client.clients.q2_client import Q2Client
+from client.clients.base_q2_client import BaseQ2Client
 from client.endpoints.q2_config_endpoints import Q2ConfigEndpoint
 
 
-class Q2ConfigClient(Q2Client):
+class Q2ConfigClient(BaseQ2Client):
 
     def get_q2_config(self):
         endpoint = Q2ConfigEndpoint.Q2_CONFIG.value

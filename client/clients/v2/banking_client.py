@@ -1,8 +1,8 @@
-from client.clients.q2_client import Q2Client
+from client.clients.base_q2_client import BaseQ2Client
 from client.endpoints.v2_endpoints import BankingEndpoint
 
 
-class BankingClient(Q2Client):
+class BankingClient(BaseQ2Client):
 
     def update_banking_account_status(self, account_id, **request_body):
         endpoint = BankingEndpoint.ACCOUNT_STATUS_SHORT_NAME.value.format(id=account_id)

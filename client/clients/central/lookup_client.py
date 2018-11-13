@@ -1,8 +1,8 @@
-from client.clients.q2_client import Q2Client
+from client.clients.base_q2_client import BaseQ2Client
 from client.endpoints.central_endpoints import LookupEndpoint
 
 
-class LookupClient(Q2Client):
+class LookupClient(BaseQ2Client):
 
     def get_customer(self, customer_id):
         endpoint = LookupEndpoint.CUSTOMER_ID.value.format(customerId=customer_id)

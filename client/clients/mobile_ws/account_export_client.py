@@ -1,5 +1,5 @@
-from client.clients.q2_client import Q2Client
+from client.clients.base_q2_client import BaseQ2Client
 
 
-class AccountExportClient(Q2Client):
+class AccountExportClient(BaseQ2Client):
     pass

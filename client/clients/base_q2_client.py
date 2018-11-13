@@ -3,7 +3,7 @@ from client.endpoints.mobile_ws_endpoints import LoginEndpoint
 from client.utils.url import URL
 
 
-class Q2Client(RestClient):
+class BaseQ2Client(RestClient):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

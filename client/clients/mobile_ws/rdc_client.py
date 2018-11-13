@@ -1,5 +1,5 @@
-from client.clients.q2_client import Q2Client
+from client.clients.base_q2_client import BaseQ2Client
 
 
-class RDCClient(Q2Client):
+class RDCClient(BaseQ2Client):
     pass

@@ -1,8 +1,8 @@
-from client.clients.q2_client import Q2Client
+from client.clients.base_q2_client import BaseQ2Client
 from client.endpoints.hq_endpoints import CoreEndpoint
 
 
-class CoreClient(Q2Client):
+class CoreClient(BaseQ2Client):
 
     def get_bai_codes(self):
         endpoint = CoreEndpoint.BAI_CODES.value

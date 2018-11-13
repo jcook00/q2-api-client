@@ -1,5 +1,5 @@
-from client.clients.q2_client import Q2Client
+from client.clients.base_q2_client import BaseQ2Client
 
 
-class DisclaimerClient(Q2Client):
+class DisclaimerClient(BaseQ2Client):
     pass

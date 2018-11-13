@@ -1,5 +1,5 @@
-from client.clients.q2_client import Q2Client
+from client.clients.base_q2_client import BaseQ2Client
 
 
-class AccountPFMClient(Q2Client):
+class AccountPFMClient(BaseQ2Client):
     pass

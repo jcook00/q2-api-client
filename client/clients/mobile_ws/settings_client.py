@@ -1,5 +1,5 @@
-from client.clients.q2_client import Q2Client
+from client.clients.base_q2_client import BaseQ2Client
 
 
-class SettingsClient(Q2Client):
+class SettingsClient(BaseQ2Client):
     pass

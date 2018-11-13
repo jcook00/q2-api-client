@@ -1,5 +1,5 @@
-from client.clients.q2_client import Q2Client
+from client.clients.base_q2_client import BaseQ2Client
 
 
-class CommercialClient(Q2Client):
+class CommercialClient(BaseQ2Client):
     pass

@@ -1,5 +1,5 @@
-from client.clients.q2_client import Q2Client
+from client.clients.base_q2_client import BaseQ2Client
 
 
-class LanguageClient(Q2Client):
+class LanguageClient(BaseQ2Client):
     pass
