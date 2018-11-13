@@ -1,5 +1,5 @@
 # Installation
-To be determined.
+TBD
 # Usage
 ## Creating a client instance
 ```python
