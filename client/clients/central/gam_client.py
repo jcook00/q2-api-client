@@ -1,8 +1,8 @@
-from client.clients.q2_client import Q2Client
+from client.clients.base_q2_client import BaseQ2Client
 from client.endpoints.central_endpoints import GAMEndpoint
 
 
-class GAMClient(Q2Client):
+class GAMClient(BaseQ2Client):
 
     def get_gam_rights(self):
         endpoint = GAMEndpoint.RIGHTS.value

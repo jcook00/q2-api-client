@@ -1,8 +1,8 @@
-from client.clients.q2_client import Q2Client
+from client.clients.base_q2_client import BaseQ2Client
 from client.endpoints.sdk_endpoints import SDKEndpoint
 
 
-class SDKClient(Q2Client):
+class SDKClient(BaseQ2Client):
 
     def get_passthrough_route(self, endpoint):
         sdk_endpoint = SDKEndpoint.ENDPOINT.value.format(endpoint=endpoint)

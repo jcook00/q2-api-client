@@ -3,7 +3,7 @@ from client.endpoints.mobile_ws_endpoints import LoginEndpoint
 from client.utils.url import URL
 
 
-class Q2Client(RestClient):
+class BaseQ2Client(RestClient):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -15,9 +15,9 @@ class Q2Client(RestClient):
         self._headers['q2token'] = kwargs.get('q2token') if kwargs.get('q2token') is not None else self._get_q2token()
 
     def _get_q2token(self):
-        credentials = {'userId': self._username, 'password': self._password}
+        request_body = {'userId': self._username, 'password': self._password}
         endpoint = LoginEndpoint.LOGON_USER.value
-        response = self._post(url=self._build_url(endpoint), json=credentials)
+        response = self._post(url=self._build_url(endpoint), json=request_body)
         response.raise_for_status()
         return response.headers.get('q2token')
 

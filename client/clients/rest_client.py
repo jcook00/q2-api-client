@@ -8,6 +8,8 @@ import requests
 class RestClient(metaclass=ABCMeta):
 
     def __init__(self, **kwargs):
+        self._connect_timeout = kwargs.get('connect_timeout')
+        self._read_timeout = kwargs.get('read_timeout')
         self._host = kwargs.get('host')
         self._scheme = kwargs.get('scheme')
         self._port = kwargs.get('port')
@@ -16,8 +18,6 @@ class RestClient(metaclass=ABCMeta):
         self._headers = kwargs.get('headers', dict())
         self._query_parameters = kwargs.get('query_parameters', defaultdict(set))
         self._fragment = kwargs.get('fragment')
-        self._connect_timeout = kwargs.get('connect_timeout')
-        self._read_timeout = kwargs.get('read_timeout')
 
     def get_header(self, header):
         return self._headers.get(header)

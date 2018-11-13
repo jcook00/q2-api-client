@@ -1,8 +1,8 @@
-from client.clients.q2_client import Q2Client
+from client.clients.base_q2_client import BaseQ2Client
 from client.endpoints.file_map_endpoints import FileMapEndpoint
 
 
-class FileMapClient(Q2Client):
+class FileMapClient(BaseQ2Client):
 
     def get_file_map_asset(self, asset, **query):
         endpoint = FileMapEndpoint.FILE_MAP_ASSET.value.format(asset=asset)

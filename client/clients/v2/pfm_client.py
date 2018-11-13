@@ -1,8 +1,8 @@
-from client.clients.q2_client import Q2Client
+from client.clients.base_q2_client import BaseQ2Client
 from client.endpoints.v2_endpoints import PFMEndpoint
 
 
-class PFMClient(Q2Client):
+class PFMClient(BaseQ2Client):
 
     def get_account(self, account_guid, **query):
         endpoint = PFMEndpoint.ACCOUNT_GUID.value.format(accountGuid=account_guid)
