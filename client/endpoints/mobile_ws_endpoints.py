@@ -113,6 +113,7 @@ class CalendarEndpoint(Enum):
 class SecurityEndpoint(Enum):
 
     CHANGE_PASSWORD = "/mobilews/changePassword"
+    VALIDATE_PASSWORD = "/mobilews/validatePassword"
 
 
 class CommercialEndpoint(Enum):
@@ -154,10 +155,10 @@ class CSREndpoint(Enum):
 
     CONFIG = "/mobilews/csr/config"
     CONFIG_NAME = "/mobilews/csr/config/{name}"
-    CONFIG_NAME_PREFIX = "/mobilews/csr/config/{name}/{prefixNameWithLoginDot}"
+    CONFIG_NAME_PREFIXED = "/mobilews/csr/config/{name}/{prefixNameWithLoginDot}"
     DASHBOARD_ACTIVITY = "/mobilews/csr/dashboardActivity"
     NAV = "/mobilews/csr/nav"
-    USER_PROPERTIES = "/mobilews/csr/userProperties"
+    PROPERTIES = "/mobilews/csr/userProperties"
 
 
 class DisclaimerEndpoint(Enum):
@@ -283,7 +284,7 @@ class PoliciesEndpoint(Enum):
     POLICIES_USER_ROLE = "/mobilews/policies/userrole"
     POLICIES_USERS = "/mobilews/policies/users"
     POLICIES_ID = "/mobilews/policies/{id}"
-    POLICIES_APPPROVE = "/mobilews/policies/{id}/approve"
+    POLICIES_APPROVE = "/mobilews/policies/{id}/approve"
     POLICY_FEATURES = "/mobilews/policyFeatures"
     POLICY_SET_COMPANY = "/mobilews/policySet/company"
     POLICY_SET_HYDRA = "/mobilews/policySet/hydra"
@@ -293,8 +294,8 @@ class PoliciesEndpoint(Enum):
 
 class PreLogonEndpoint(Enum):
 
-    PRELOGON_USER = "/mobilews/preLogonUser"
-    PRELOGON_USER_CLEAR_CACHE = "/mobilews/preLogonUser/clearCache"
+    PRE_LOGON_USER = "/mobilews/preLogonUser"
+    PRE_LOGON_USER_CLEAR_CACHE = "/mobilews/preLogonUser/clearCache"
 
 
 class PushEndpoint(Enum):
@@ -353,8 +354,8 @@ class SettingsEndpoint(Enum):
 
 class SSOEndpoint(Enum):
 
-    SSO_BILLPAY = "/mobilews/sso/billpay"
-    SSO_BILLPAY_ID = "/mobilews/sso/billpay/{id}"
+    SSO_BILL_PAY = "/mobilews/sso/billpay"
+    SSO_BILL_PAY_ID = "/mobilews/sso/billpay/{id}"
     SSO_GENERIC_ID = "/mobilews/sso/generic/{id}/{accountId}"
     SSO_VENDOR_ID = "/mobilews/sso/vendor/{id}"
 
@@ -371,7 +372,7 @@ class TransactionEndpoint(Enum):
     TRANSACTION_ID = "/mobilews/transaction/{id}"
     TRANSACTION_INQUIRY_LINK = "/mobilews/transaction/{id}/inquiryLink"
     TRANSACTION_NOTIFY = "/mobilews/transaction/{transactionId}/notify"
-    TRANSACTION_NOTIFY_BRANCH = "/mobilews/transaction/{transactionId}/notifyBatch"
+    TRANSACTION_NOTIFY_BATCH = "/mobilews/transaction/{transactionId}/notifyBatch"
     TRANSACTION_TYPE = "/mobilews/transaction/{type}"
     TRANSACTION_FORM = "/mobilews/transactionform/{type}"
     TRANSACTIONS = "/mobilews/transactions"
@@ -394,12 +395,15 @@ class UserEndpoint(Enum):
     USER_PROFILE_DECIDE_ID = "/mobilews/userProfile/decide/{id}"
     USER_PROFILE_FORM = "/mobilews/userProfile/form"
     USER_PROFILE_ID = "/mobilews/userProfile/{id}"
+    USER_AGENT = "/mobilews/useragent"
 
 
 class ConfigEndpoint(Enum):
 
-    USER_AGENT = "/mobilews/useragent"
     UUX_CONFIGURATION = "/mobilews/uuxConfiguration"
+
+
+class V2Endpoint(Enum):
+
     COMMERCIAL_TAX_PAYMENT = "/mobilews/v2/commercial/taxpayment"
     COMMERCIAL_TAX_PAYMENT_ID = "/mobilews/v2/commercial/taxpayment/{id}"
-    VALIDATE_PASSWORD = "/mobilews/validatePassword"

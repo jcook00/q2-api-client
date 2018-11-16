@@ -45,6 +45,7 @@ from client.clients.mobile_ws.sso_client import SSOClient
 from client.clients.mobile_ws.theme_client import ThemeClient
 from client.clients.mobile_ws.transaction_client import TransactionClient
 from client.clients.mobile_ws.user_client import UserClient
+from client.clients.mobile_ws.v2_client import V2Client
 
 
 class MobileWSClient:
@@ -98,6 +99,7 @@ class MobileWSClient:
         self._transaction = TransactionClient(**kwargs)
         self._user = UserClient(**kwargs)
         self._config = ConfigClient(**kwargs)
+        self._v2 = V2Client(**kwargs)
 
     @property
     def access_code(self):
@@ -286,3 +288,7 @@ class MobileWSClient:
     @property
     def config(self):
         return self._config
+
+    @property
+    def v2(self):
+        return self._v2
