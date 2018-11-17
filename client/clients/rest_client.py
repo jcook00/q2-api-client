@@ -81,6 +81,8 @@ class RestClient(metaclass=ABCMeta):
             url=url,
             params=components.get('query_parameters', self._query_parameters),
             headers=components.get('headers', self._headers),
+            data=components.get('data'),
+            json=components.get('json'),
             timeout=(self._connect_timeout, self._read_timeout)
         )
         return response
