@@ -15,6 +15,12 @@ class BaseQ2Client(RestClient):
         self._headers['q2token'] = kwargs.get('q2token') if kwargs.get('q2token') is not None else self._get_q2token()
 
     def _get_q2token(self):
+        """Sends a logon POST request and returns the Q2 token from the response headers.
+
+        :return: the q2token header value
+        :rtype: str
+        :raises HTTPError: failed to authenticate
+        """
         request_body = {'userId': self._username, 'password': self._password}
         endpoint = LoginEndpoint.LOGON_USER.value
         response = self._post(url=self._build_url(endpoint), json=request_body)
@@ -22,6 +28,12 @@ class BaseQ2Client(RestClient):
         return response.headers.get('q2token')
 
     def _build_url(self, endpoint='/'):
+        """Builds a URL using the endpoint.
+
+        :param str endpoint: the endpoint to add to the path
+        :return: the URL
+        :rtype: str
+        """
         path = endpoint if self._base_path is None else "".join((self._base_path, endpoint))
         url = URL(scheme=self._scheme, host=self._host, port=self._port, path=path)
         return url.build()
