@@ -35,6 +35,13 @@ class RestClient(metaclass=ABCMeta):
         return deepcopy(self._query_parameters)
 
     def _get(self, url, **components):
+        r"""Sends a GET request.
+
+        :param url: URL for the new :class:`Request` object.
+        :param \*\*components: Optional arguments that ``request`` takes.
+        :return: Response object
+        :rtype: requests.Response
+        """
         response = requests.get(
             url=url,
             params=components.get('query_parameters', self._query_parameters),
@@ -44,6 +51,16 @@ class RestClient(metaclass=ABCMeta):
         return response
 
     def _put(self, url, **components):
+        r"""Sends a PUT request.
+
+        :param url: URL for the new :class:`Request` object.
+        :param data: (optional) Dictionary, list of tuples, bytes, or file-like
+            object to send in the body of the :class:`Request`.
+        :param json: (optional) json data to send in the body of the :class:`Request`.
+        :param \*\*components: Optional arguments that ``request`` takes.
+        :return: Response object
+        :rtype: requests.Response
+        """
         response = requests.put(
             url=url,
             params=components.get('query_parameters', self._query_parameters),
@@ -55,6 +72,16 @@ class RestClient(metaclass=ABCMeta):
         return response
 
     def _post(self, url, **components):
+        r"""Sends a POST request.
+
+        :param url: URL for the new :class:`Request` object.
+        :param data: (optional) Dictionary, list of tuples, bytes, or file-like
+            object to send in the body of the :class:`Request`.
+        :param json: (optional) json data to send in the body of the :class:`Request`.
+        :param \*\*components: Optional arguments that ``request`` takes.
+        :return: Response object
+        :rtype: requests.Response
+        """
         response = requests.post(
             url=url,
             params=components.get('query_parameters', self._query_parameters),
@@ -66,6 +93,16 @@ class RestClient(metaclass=ABCMeta):
         return response
 
     def _patch(self, url, **components):
+        r"""Sends a PATCH request.
+
+        :param url: URL for the new :class:`Request` object.
+        :param data: (optional) Dictionary, list of tuples, bytes, or file-like
+            object to send in the body of the :class:`Request`.
+        :param json: (optional) json data to send in the body of the :class:`Request`.
+        :param \*\*components: Optional arguments that ``request`` takes.
+        :return: Response object
+        :rtype: requests.Response
+        """
         response = requests.patch(
             url=url,
             params=components.get('query_parameters', self._query_parameters),
@@ -77,6 +114,16 @@ class RestClient(metaclass=ABCMeta):
         return response
 
     def _delete(self, url, **components):
+        r"""Sends a DELETE request.
+
+        :param url: URL for the new :class:`Request` object.
+        :param data: (optional) Dictionary, list of tuples, bytes, or file-like
+            object to send in the body of the :class:`Request`.
+        :param json: (optional) json data to send in the body of the :class:`Request`.
+        :param \*\*components: Optional arguments that ``request`` takes.
+        :return: Response object
+        :rtype: requests.Response
+        """
         response = requests.delete(
             url=url,
             params=components.get('query_parameters', self._query_parameters),

@@ -226,8 +226,8 @@ class LocationsEndpoint(Enum):
 
     LOCATIONS = "/mobilews/locations"
     ADDRESS = "/mobilews/locations/address/{address}"
-    ADDRESS_LAT_LONG = "/mobilews/locations/address/{address}/{latitude}/{longitude}"
-    LOCATIONS_LAT_LONG = "/mobilews/locations/{latitude}/{longitude}"
+    ADDRESS_COORDINATES = "/mobilews/locations/address/{address}/{latitude}/{longitude}"
+    LOCATIONS_COORDINATES = "/mobilews/locations/{latitude}/{longitude}"
 
 
 class LoginEndpoint(Enum):
@@ -257,8 +257,8 @@ class MessageEndpoint(Enum):
 
 class MicroDepositEndpoint(Enum):
 
-    MICRODEPOSIT = "/mobilews/microdeposit"
-    MICRODEPOSIT_ID = "/mobilews/microdeposit/{id}"
+    MICRO_DEPOSIT = "/mobilews/microdeposit"
+    MICRO_DEPOSIT_ID = "/mobilews/microdeposit/{id}"
 
 
 class NavEndpoint(Enum):
