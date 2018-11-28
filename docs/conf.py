@@ -228,7 +228,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
   ('index', 'sample', u'sample Documentation',
-   u'Q2 Software, Inc.', 'client', 'Q2 Rest API Client',
+   u'Q2 Software, Inc.', 'q2_api_client', 'Q2 Rest API Client',
    'Miscellaneous'),
 ]
 
