@@ -1,3 +1,4 @@
+import logging
 from abc import ABCMeta
 from collections import defaultdict
 from copy import deepcopy
@@ -48,6 +49,7 @@ class RestClient(metaclass=ABCMeta):
             headers=components.get('headers', self._headers),
             timeout=(self._connect_timeout, self._read_timeout)
         )
+        self._log_response(response)
         return response
 
     def _put(self, url, **components):
@@ -69,6 +71,7 @@ class RestClient(metaclass=ABCMeta):
             json=components.get('json'),
             timeout=(self._connect_timeout, self._read_timeout)
         )
+        self._log_response(response)
         return response
 
     def _post(self, url, **components):
@@ -90,6 +93,7 @@ class RestClient(metaclass=ABCMeta):
             json=components.get('json'),
             timeout=(self._connect_timeout, self._read_timeout)
         )
+        self._log_response(response)
         return response
 
     def _patch(self, url, **components):
@@ -111,6 +115,7 @@ class RestClient(metaclass=ABCMeta):
             json=components.get('json'),
             timeout=(self._connect_timeout, self._read_timeout)
         )
+        self._log_response(response)
         return response
 
     def _delete(self, url, **components):
@@ -132,4 +137,19 @@ class RestClient(metaclass=ABCMeta):
             json=components.get('json'),
             timeout=(self._connect_timeout, self._read_timeout)
         )
+        self._log_response(response)
         return response
+
+    @staticmethod
+    def _log_response(response):
+        """Logs the HTTP request and response.
+
+        :param response: Response object
+        """
+        logger = logging.getLogger()
+        logger.info('{method} {url}'.format(method=response.request.method, url=response.request.url))
+        logger.info('Request Headers: {headers}'.format(headers=response.request.headers))
+        logger.info('Request Body: {request_body}'.format(request_body=response.request.body))
+        logger.info('Response Status Code: {status_code}'.format(status_code=response.status_code))
+        logger.info('Response Headers: {headers}'.format(headers=response.headers))
+        logger.info('Response Body: {response_body}'.format(response_body=response.text))
