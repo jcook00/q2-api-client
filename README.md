@@ -3,7 +3,7 @@ TBD
 # Usage
 ## Creating a client instance
 ```python
-from client.q2_api_client import Q2APIClient
+from q2_api_client.client import Q2APIClient
 
 client = Q2APIClient(host="secure.fi.com", username="username", password="P@ssw0rd")
 ``` 
