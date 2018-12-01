@@ -5,6 +5,8 @@ from copy import deepcopy
 
 import requests
 
+LOGGER = logging.getLogger(__name__)
+
 
 class RestClient(metaclass=ABCMeta):
 
@@ -146,10 +148,9 @@ class RestClient(metaclass=ABCMeta):
 
         :param response: Response object
         """
-        logger = logging.getLogger()
-        logger.info('{method} {url}'.format(method=response.request.method, url=response.request.url))
-        logger.info('Request Headers: {headers}'.format(headers=response.request.headers))
-        logger.info('Request Body: {request_body}'.format(request_body=response.request.body))
-        logger.info('Response Status Code: {status_code}'.format(status_code=response.status_code))
-        logger.info('Response Headers: {headers}'.format(headers=response.headers))
-        logger.info('Response Body: {response_body}'.format(response_body=response.text))
+        LOGGER.info('%s %s', response.request.method, response.request.url)
+        LOGGER.info('Request Headers: %s', response.request.headers)
+        LOGGER.info('Request Body: %s', response.request.body)
+        LOGGER.info('Response Status Code: %d', response.status_code)
+        LOGGER.info('Response Headers: %s', response.headers)
+        LOGGER.info('Response Body: %s', response.text)

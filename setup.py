@@ -10,7 +10,7 @@ with open('LICENSE') as f:
     license = f.read()
 
 setup(
-    name='Q2 Rest API Client',
+    name='q2-api-client',
     version='0.1.0',
     description='Q2 Rest API Client',
     long_description=readme,
