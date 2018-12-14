@@ -305,7 +305,7 @@ class CommercialClient(BaseQ2Client):
         :return: Response object
         :rtype: requests.Response
         """
-        endpoint = CommercialEndpoint.SUBSIDIARY_ID.value(id=subsidiary_id)
+        endpoint = CommercialEndpoint.SUBSIDIARY_ID.value.format(id=subsidiary_id)
         return self._get(url=self._build_url(endpoint))
 
     def delete_subsidiary(self, subsidiary_id):
@@ -315,7 +315,7 @@ class CommercialClient(BaseQ2Client):
         :return: Response object
         :rtype: requests.Response
         """
-        endpoint = CommercialEndpoint.SUBSIDIARY_ID.value(id=subsidiary_id)
+        endpoint = CommercialEndpoint.SUBSIDIARY_ID.value.format(id=subsidiary_id)
         return self._delete(url=self._build_url(endpoint))
 
     def update_subsidiary(self, subsidiary_id, request_body):
@@ -326,7 +326,7 @@ class CommercialClient(BaseQ2Client):
         :return: Response object
         :rtype: requests.Response
         """
-        endpoint = CommercialEndpoint.SUBSIDIARY_ID.value(id=subsidiary_id)
+        endpoint = CommercialEndpoint.SUBSIDIARY_ID.value.format(id=subsidiary_id)
         return self._put(url=self._build_url(endpoint), json=request_body)
 
     def get_tax_payments(self):
