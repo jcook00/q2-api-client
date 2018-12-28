@@ -52,3 +52,19 @@ class Q2APIClient:
     @property
     def v2(self):
         return self._v2
+
+    def set_q2token(self, q2token):
+        """Sets the Q2 Token for all the clients.
+
+        :param q2token: the q2token value
+        """
+        def set_q2token(obj):
+            put_header = getattr(obj, 'put_header', None)
+            if callable(put_header):
+                obj.put_header('q2token', q2token)
+            else:
+                for val in vars(obj).values():
+                    set_q2token(val)
+
+        for value in vars(self).values():
+            set_q2token(value)
