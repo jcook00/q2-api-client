@@ -47,6 +47,7 @@ class RestClient(metaclass=ABCMeta):
         """
         response = requests.get(
             url=url,
+            auth=components.get('auth'),
             params=components.get('query_parameters', self._query_parameters),
             headers=components.get('headers', self._headers),
             timeout=(self._connect_timeout, self._read_timeout)
@@ -67,6 +68,7 @@ class RestClient(metaclass=ABCMeta):
         """
         response = requests.put(
             url=url,
+            auth=components.get('auth'),
             params=components.get('query_parameters', self._query_parameters),
             headers=components.get('headers', self._headers),
             data=components.get('data'),
@@ -89,6 +91,7 @@ class RestClient(metaclass=ABCMeta):
         """
         response = requests.post(
             url=url,
+            auth=components.get('auth'),
             params=components.get('query_parameters', self._query_parameters),
             headers=components.get('headers', self._headers),
             data=components.get('data'),
@@ -111,6 +114,7 @@ class RestClient(metaclass=ABCMeta):
         """
         response = requests.patch(
             url=url,
+            auth=components.get('auth'),
             params=components.get('query_parameters', self._query_parameters),
             headers=components.get('headers', self._headers),
             data=components.get('data'),
@@ -133,6 +137,7 @@ class RestClient(metaclass=ABCMeta):
         """
         response = requests.delete(
             url=url,
+            auth=components.get('auth'),
             params=components.get('query_parameters', self._query_parameters),
             headers=components.get('headers', self._headers),
             data=components.get('data'),
