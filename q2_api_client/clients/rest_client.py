@@ -1,7 +1,7 @@
+import collections
+import copy
 import logging
 from abc import ABCMeta
-from collections import defaultdict
-from copy import deepcopy
 
 import requests
 
@@ -19,7 +19,7 @@ class RestClient(metaclass=ABCMeta):
         self._username = kwargs.get('username')
         self._password = kwargs.get('password')
         self._headers = kwargs.get('headers', dict())
-        self._query_parameters = kwargs.get('query_parameters', defaultdict(set))
+        self._query_parameters = kwargs.get('query_parameters', collections.defaultdict(set))
         self._fragment = kwargs.get('fragment')
 
     def get_header(self, header):
@@ -29,13 +29,13 @@ class RestClient(metaclass=ABCMeta):
         self._headers[header] = value
 
     def _copy_headers(self):
-        return deepcopy(self._headers)
+        return copy.deepcopy(self._headers)
 
     def add_query_parameter(self, parameter, value):
         self._query_parameters[parameter].add(value)
 
     def _copy_query_parameters(self):
-        return deepcopy(self._query_parameters)
+        return copy.deepcopy(self._query_parameters)
 
     def _get(self, url, **components):
         r"""Sends a GET request.

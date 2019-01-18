@@ -1,3 +1,4 @@
+from q2_api_client.clients.back_office.back_office_client import BackOfficeClient
 from q2_api_client.clients.central.central_client import CentralClient
 from q2_api_client.clients.file_map.file_map_client import FileMapClient
 from q2_api_client.clients.hq.hq_client import HQClient
@@ -6,6 +7,7 @@ from q2_api_client.clients.q2_config.q2_config_client import Q2ConfigClient
 from q2_api_client.clients.refresh_cache.refresh_cache_client import RefreshCacheClient
 from q2_api_client.clients.sdk.sdk_client import SDKClient
 from q2_api_client.clients.v2.v2_client import V2Client
+from q2_api_client.clients.v3.v3_client import V3Client
 
 
 class Q2APIClient:
@@ -20,6 +22,8 @@ class Q2APIClient:
         self._refresh_cache = RefreshCacheClient(**kwargs)
         self._sdk = SDKClient(**kwargs)
         self._v2 = V2Client(**kwargs)
+        self._v3 = V3Client(**kwargs)
+        self._back_office_v3 = BackOfficeClient(**kwargs)
 
     @property
     def q2_config(self):
@@ -52,6 +56,14 @@ class Q2APIClient:
     @property
     def v2(self):
         return self._v2
+
+    @property
+    def v3(self):
+        return self._v3
+
+    @property
+    def back_office_v3(self):
+        return self._back_office_v3
 
     def set_q2token(self, q2token):
         """Sets the Q2 Token for all the clients.
