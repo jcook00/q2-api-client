@@ -1,0 +1,15 @@
+from q2_api_client.clients.base_q2_client import BaseQ2Client
+from q2_api_client.endpoints.v3_endpoints import RecurringActionEndpoint
+
+
+class RecurringActionClient(BaseQ2Client):
+
+    def retrieve_recurring_actions(self, request_body):
+        """POST /v3/recurringAction/retrieve
+
+        :param dict request_body: Dictionary object to send in the body of the request
+        :return: Response object
+        :rtype: requests.Response
+        """
+        endpoint = RecurringActionEndpoint.RETRIEVE_RECURRING_ACTIONS.value
+        return self._post(url=self._build_url(endpoint), json=request_body)
