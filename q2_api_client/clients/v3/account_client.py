@@ -34,4 +34,3 @@ class AccountClient(BaseQ2Client):
         """
         endpoint = AccountEndpoint.UPDATE_ACCOUNT.value.format(id=account_id)
         return self._post(url=self._build_url(endpoint), json=request_body)
-
