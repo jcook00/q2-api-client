@@ -12,6 +12,8 @@ class OnlineActivityClient(BaseQ2Client):
         :rtype: requests.Response
         """
         endpoint = OnlineActivityEndpoint.ONLINE_ACTIVITY_EXPORT.value.format(id=activity_id)
+        headers = self._copy_headers()
+        headers['Accept'] = "text/plain, */*"
         query_parameters = self._copy_query_parameters()
         query_parameters.update(**query)
-        return self._get(url=self._build_url(endpoint), query_parameters=query_parameters)
+        return self._get(url=self._build_url(endpoint), headers=headers, query_parameters=query_parameters)
