@@ -10,7 +10,7 @@ class TypeClient(BaseQ2Client):
         :return: Response object
         :rtype: requests.Response
         """
-        endpoint = TypeEndpoint.ACTION_STATUS.value
+        endpoint = TypeEndpoint.ACTION_TYPE.value
         return self._get(url=self._build_url(endpoint))
 
     def get_image_types(self):
